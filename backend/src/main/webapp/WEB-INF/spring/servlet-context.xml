@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- ✅ 1. Spring MVC에서 @Controller, @RequestMapping 등 어노테이션 활성화 -->
+    <mvc:annotation-driven />
+
+    <!-- ✅ 2. 정적 리소스(css, js, 이미지 등) 경로 매핑 -->
+    <!-- /resources/** 경로로 들어오는 요청을 /resources/ 폴더로 매핑함 -->
+    <!-- ex) /resources/css/style.css → webapp/resources/css/style.css -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
+    <!-- ✅ 3. ViewResolver 설정 (JSP 파일을 뷰로 처리하도록) -->
+    <!-- WEB-INF/views/ 폴더 안의 *.jsp 파일들을 찾아서 렌더링 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- ⚠ 필요한 경우 추가 Bean 등록은 여기 아래에 작성 -->
+
+</beans>
