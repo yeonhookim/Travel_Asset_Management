@@ -1,6 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+<!-- src/main/webapp/WEB-INF/web.xml -->
+<web-app>
+    <!-- 웹 애플리케이션의 이름 -->
+    <display-name>KB 여행 웹앱</display-name>
+
+    <!-- DispatcherServlet 등록: 모든 요청을 Spring MVC가 처리하게 설정 -->
+    <servlet>
+        <!-- 서블릿 이름 (아래 매핑에서도 동일하게 사용됨) -->
+        <servlet-name>dispatcher</servlet-name>
+
+        <!-- DispatcherServlet 클래스 지정 -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+        <!-- DispatcherServlet이 사용할 Spring 설정 파일의 위치 -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <!-- 실제 설정 파일 위치: 아래에 설명 있음 -->
+            <param-value>/WEB-INF/spring/root-context.xml</param-value>
+        </init-param>
+
+        <!-- 서버 시작 시 DispatcherServlet을 가장 먼저 로딩 -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- DispatcherServlet이 모든 요청('/')을 처리하도록 설정 -->
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- 브라우저에서 기본으로 열리는 시작 페이지 -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
