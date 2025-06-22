@@ -40,3 +40,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# DB 설정 제외
+src/main/resources/db.properties
