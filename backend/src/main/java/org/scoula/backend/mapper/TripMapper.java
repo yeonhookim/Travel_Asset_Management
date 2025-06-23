@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface TripMapper {
     List<TripDTO> findTripsByMemberId(int memberId);
+
+    // 여행 등록 (추가된 부분)
+    void insertTrip(TripDTO tripDTO);
 }

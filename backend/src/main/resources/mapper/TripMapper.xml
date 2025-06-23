@@ -9,4 +9,9 @@
         SELECT * FROM trip WHERE member_id = #{memberId}
     </select>
 
+    <insert id="insertTrip" parameterType="TripDTO">
+        INSERT INTO trip (member_id, title, destination, start_date, end_date)
+        VALUES (#{memberId}, #{title}, #{destination}, #{startDate}, #{endDate})
+    </insert>
+
 </mapper>
