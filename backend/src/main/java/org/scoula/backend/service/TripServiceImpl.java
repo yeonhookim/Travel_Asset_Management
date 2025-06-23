@@ -17,4 +17,9 @@ public class TripServiceImpl implements TripService {
     public List<TripDTO> getTripsByMemberId(int memberId) {
         return tripMapper.findTripsByMemberId(memberId);
     }
+
+    @Override
+    public void addTrip(TripDTO tripDTO) {
+        tripMapper.insertTrip(tripDTO); // DB에 여행 추가
+    }
 }
