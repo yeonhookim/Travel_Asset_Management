@@ -42,9 +42,33 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/logout")
+
+    // 마이페이지 조회 (GET)
+    @GetMapping("/mypage")
+    public String mypage(HttpSession session, Model model) {
+        MemberDTO loginUser = (MemberDTO) session.getAttribute("loginUser"); // 로그인 사용자 세션 확인
+        if (loginUser != null) {
+            MemberDTO member = memberService.findById(loginUser.getUsername()); // DB에서 최신 정보 조회
+            model.addAttribute("member", member); // 뷰에 전달
+            return "member/mypage"; // mypage.jsp로 이동
+        }
+        return "redirect:/login"; // 비로그인 상태면 로그인 페이지로
+    }
+
+    // 마이페이지 수정 처리 (POST)
+    @PostMapping("/mypage")
+    public String updateMypage(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
+        memberService.updateMember(memberDTO); // 수정 로직 실행
+        session.setAttribute("loginUser", memberDTO); // 세션 정보도 갱신
+        return "redirect:/mypage"; // 다시 마이페이지로 이동
+    }
+    // 로그아웃 처리
+    @GetMapping("/logout") // 사용자가 /logout URL에 접근하면 로그아웃 실행
     public String logout(HttpSession session) {
-        session.invalidate(); // 세션 초기화
-        return "redirect:/login"; // 로그인 페이지로 이동
+        // 세션에서 사용자 정보 제거, 세션 무효화 (모든 세션 속성 제거)
+        session.invalidate(); // 또는 session.removeAttribute("loginUser");
+
+        // 로그아웃 후 메인 페이지로 이동
+        return "redirect:/main";
     }
 }
