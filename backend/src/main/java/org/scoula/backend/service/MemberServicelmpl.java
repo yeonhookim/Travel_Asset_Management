@@ -39,5 +39,17 @@ public class MemberServicelmpl implements MemberService {
         return null; // 로그인 실패
     }
 
+    // username으로 회원 조회
+    @Override
+    public MemberDTO findById(String username) {
+        return memberMapper.findById(username);
+    }
+
+    // 회원 정보 수정 처리
+    @Override
+    public void updateMember(MemberDTO member) {
+        memberMapper.updateMember(member);
+    }
+
 
 }

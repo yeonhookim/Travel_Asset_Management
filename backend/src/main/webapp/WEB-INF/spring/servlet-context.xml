@@ -23,6 +23,8 @@
     <!-- WEB-INF/views/ 폴더 안의 *.jsp 파일들을 찾아서 렌더링 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
+<!--        컨트롤러에서 return "member/signup";이라고 하면
+             Spring은 /WEB-INF/views/member/signup.jsp를 찾아서 보여줌 -->
         <property name="suffix" value=".jsp" />
     </bean>
 
