@@ -78,6 +78,8 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
     testImplementation 'javax.servlet:javax.servlet-api:4.0.1'
 
+    // 비밀번호 암호화 설정 (BCrypt)
+    implementation 'org.springframework.security:spring-security-core:5.7.3'
 
 }
 
