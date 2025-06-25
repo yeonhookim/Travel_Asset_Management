@@ -3,8 +3,17 @@
 
 <html>
 <head>
-  <title>메인 페이지</title>
+  <title>TAM</title>
 </head>
+
+<h1>
+<a href="index">인덱스</a>
+  <a href="views/error">에러</a>
+  <a href="views/home">홈</a>
+  <a href="views/test">테스트</a>
+
+
+</h1>
 <body>
 
 

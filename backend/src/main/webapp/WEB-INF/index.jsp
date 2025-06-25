@@ -1,16 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<!-- webapp/WEB-INF/index.jsp -->
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>TAM</title>
-</head>
+<head><title>Welcome</title></head>
 <body>
-<h1>TAM</h1>
-
-<ul>
-
-</ul>
+<h2>🎉 TAM 프로젝트에 오신 것을 환영합니다</h2>
+<a href="${pageContext.request.contextPath}/">메인으로 가기</a>
 </body>
+
 </html>
+
